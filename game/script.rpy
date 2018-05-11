@@ -7,17 +7,17 @@
 init python:
     poem = [[""]]
     current_line = 0
-    adjectives = ["beautiful", "blue", "gray", "crimson", "soft", "feathery", "tiny", "young", "gentle", "old", "pink", "rosy", "your", "my", "our", "happy"]
     nouns = ["weed", "flower", "seed", "blanket", "knife", "fire", "words", "light", "hair", "nose", "toes", "breakfast", "sunrise", "you", "she", "family", "joy", "I"]
+    adjectives = ["beautiful", "blue", "gray", "crimson", "soft", "feathery", "tiny", "young", "gentle", "old", "pink", "rosy", "your", "my", "our", "happy"]
     verbs = ["touch", "feel", "know", "soar", "grieve", "hold", "grow", "build", "adore", "love"]
-    other = ["on", "after", "before", "for", "of", "and", "the", "ing", "ly", "!", "?", "s", "forever"]
+    other = ["on", "after", "before", "for", "of", "and", "the", "ing", "ly", "!", "?", "s", "forever", "every"]
 
 label start:
 
-    scene bg stars
+    scene stars
     "Welcome to Plugin Poetry...Build your poem and share it."
 
-    # You could also alphabetize them, or pick a limited number of them
+    # TODO: randomize, alphabetize them, or pick a limited number of them
     #$ random.shuffle(nouns)
     #$ random.shuffle(adjectives)
     #$ random.shuffle(verbs)
@@ -26,6 +26,7 @@ label start:
 label make_poem:
     $ poems = []
     $ poem = [[""]]
+    $ current_line = 0
     call screen plugin_poetry()
     $ poems.append(poem)
 

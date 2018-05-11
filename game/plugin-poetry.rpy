@@ -1,13 +1,16 @@
 screen plugin_poetry:
     frame:
+        style_prefix "pp"
         xpadding 50
         ypadding 50
         xfill True
-        yalign 0.5
+        yalign 0.0
+        background "images/stars.jpg"
         vbox:
             vbox:
                 hbox:
                     label "Poem"
+                    null width 200
                     textbutton "Next Line" action NextLine()
                     textbutton "Done" action Return()
                 vbox:
@@ -16,27 +19,37 @@ screen plugin_poetry:
                             for j in range(0, len(poem[i])):
                                 text poem[i][j]
                                 text " "
-
             hbox:
+                spacing 10
+                xfill True
+                ypos 50
                 vbox:
                     label "Nouns"
-                    for i in range(0, len(nouns)):
-                        textbutton nouns[i] action AddWord(nouns[i])
+                    vpgrid:
+                        cols 3
+                        for i in range(0, len(nouns)):
+                            textbutton nouns[i] action AddWord(nouns[i]) size_group "word"
 
                 vbox:
                     label "Adjectives"
-                    for i in range(0, len(adjectives)):
-                        textbutton adjectives[i] action AddWord(adjectives[i])
+                    vpgrid:
+                        cols 3
+                        for i in range(0, len(adjectives)):
+                            textbutton adjectives[i] action AddWord(adjectives[i]) size_group "word"
 
                 vbox:
                     label "Verbs"
-                    for i in range(0, len(verbs)):
-                        textbutton verbs[i] action AddWord(verbs[i])
+                    vpgrid:
+                        cols 2
+                        for i in range(0, len(verbs)):
+                            textbutton verbs[i] action AddWord(verbs[i]) size_group "word"
 
                 vbox:
                     label "Other"
-                    for i in range(0, len(other)):
-                        textbutton other[i] action AddWord(other[i])
+                    vpgrid:
+                        cols 2
+                        for i in range(0, len(other)):
+                            textbutton other[i] action AddWord(other[i]) size_group "word"
 
 init python:
     def nextline():
@@ -50,3 +63,7 @@ init python:
         poem[current_line].append(word)
         renpy.restart_interaction()
     AddWord = renpy.curry(addword)
+
+
+style pp_label is label:
+    xalign 0.5
