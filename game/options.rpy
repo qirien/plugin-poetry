@@ -18,7 +18,7 @@ define config.name = _("Plugin Poetry")
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## The version of the game.
@@ -30,6 +30,10 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+Plugin Poetry by Andrea Landaker is licensed CC-BY 4.0
+Use it, customize it, include it however you like, as long as credit is given.
+
+Andrea Landaker is part of Metasepia Games, {a=http://metasepia.icecavern.net}http://metasepia.icecavern.net{/a}\n\n
 """)
 
 
