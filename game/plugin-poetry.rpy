@@ -6,8 +6,6 @@ screen plugin_poetry:
         background "images/stars.jpg"
         frame:
             yfill True
-            xpadding 50
-            ypadding 10
             background "#aaaaaa"
             vbox:
                 vbox:
