@@ -15,6 +15,7 @@ screen plugin_poetry:
                         spacing 20
                         textbutton "New Line" action NextLine() sensitive (current_line < (MAX_LINES-1))
                         textbutton "Add Custom Word" action renpy.curried_invoke_in_new_context(textinput) #TextInput()
+                        textbutton "Shuffle Words" action ShuffleWordLists()
                         textbutton "Reset Line" action Reset(False)
                         textbutton "Reset Poem" action Reset(True)
                         textbutton "Done" action Return()

@@ -17,7 +17,12 @@ init python:
     VERB_COLUMNS = 2
     OTHER_COLUMNS = 2
     MAX_ROWS = 10
+    nouns = list(NOUNS)
+    adjectives = list(ADJECTIVES)
+    verbs = list(VERBS)
+    other = list(OTHER)
 
+init python:
     # If we have more words in a list than will fit nicely on the screen,
     # we take a random sample from that list to use.
     # of words selected will fit on the screen. Then we sort in ABC order.
@@ -36,6 +41,11 @@ init python:
         if (len(OTHER) > (OTHER_COLUMNS * MAX_ROWS)):
             other = random.sample(OTHER, OTHER_COLUMNS * MAX_ROWS)
         other.sort()
+
+        renpy.restart_interaction()
+        return
+
+    ShuffleWordLists = renpy.curry(shuffle_word_lists)
 
 label start:
     scene stars
