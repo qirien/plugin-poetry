@@ -5,6 +5,8 @@ screen poetry_display:
         yfill True
         background "images/stars.jpg"
         frame:
+            xpadding 50
+            ypadding 50
             yfill True
             background "#aaaaaa"
             hbox:
