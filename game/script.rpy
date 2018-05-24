@@ -5,10 +5,13 @@
 # To customize, add or delete words from these lists.
 
 init python:
-    NOUNS = ["plant", "flower", "seed", "blanket", "fire", "word", "light", "hair", "nose", "toe", "breakfast", "sunrise", "you", "she", "family", "joy", "I", "we", "water", "earth", "air", "planet", "space", "face", "milk", "scent", "father", "mother", "sound", "fruit", "baby", "pain"]
-    ADJECTIVES = ["beautiful", "blue", "gray", "crimson", "soft", "feathery", "tiny", "young", "gentle", "old", "pink", "rosy", "your", "my", "our", "happy", "simple", "slow", "green", "personal", "bright", "clever", "cute", "chubby", "jealous", "next", "tender", "tight", "precious", "orange", "sweet", "this", "sharp"]
-    VERBS = ["touch", "feel", "know", "soar", "cry", "hold", "grow", "build", "adore", "love", "babble", "smile", "dance", "sing", "cuddle", "nurture", "thank", "help", "frown", "kick", "glow", "cut", "wrench"]
-    OTHER = ["in", "on", "after", "before", "for", "of", "and", "the", "-ing", "-ly", "!", "?", "-s", "forever", "every", "from", "oh", "around", "between", "-y"]
+    basic_nouns = ["plant", "flower", "seed", "blanket", "fire", "word", "light", "hair", "nose", "toe", "breakfast", "sunrise", "you", "she", "family", "joy", "I", "we", "water", "earth", "air", "planet", "space", "face", "milk", "scent", "father", "mother", "sound", "fruit", "baby", "pain", "me"]
+    basic_adjectives = ["beautiful", "blue", "gray", "crimson", "soft", "feathery", "tiny", "young", "gentle", "old", "pink", "rosy", "your", "my", "our", "happy", "simple", "slow", "green", "personal", "bright", "clever", "cute", "chubby", "jealous", "next", "tender", "tight", "precious", "orange", "sweet", "this", "sharp"]
+    basic_verbs = ["touch", "feel", "know", "soar", "cry", "hold", "grow", "build", "adore", "love", "babble", "smile", "dance", "sing", "cuddle", "nurture", "thank", "help", "frown", "kick", "glow", "cut", "wrench"]
+    basic_other = ["in", "on", "after", "before", "for", "of", "and", "the", "-ing", "-ly", "!", "?", "-s", "forever", "every", "from", "oh", "around", "between", "-y"]
+    basic_words = Wordpack()
+    basic_words.add_words(basic_nouns, basic_adjectives, basic_verbs, basic_other)
+
     MAX_LINES = 5
     MAX_POEMS = 5
 
@@ -17,10 +20,13 @@ init python:
     VERB_COLUMNS = 2
     OTHER_COLUMNS = 2
     MAX_ROWS = 10
-    nouns = list(NOUNS)
-    adjectives = list(ADJECTIVES)
-    verbs = list(VERBS)
-    other = list(OTHER)
+    nouns = list(basic_nouns)
+    adjectives = list(basic_adjectives)
+    verbs = list(basic_verbs)
+    other = list(basic_other)
+
+    display_words = Wordpack()
+    display_words.add_wordpacks(basic_words)
 
 init python:
     # If we have more words in a list than will fit nicely on the screen,

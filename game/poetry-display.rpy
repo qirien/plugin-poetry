@@ -33,7 +33,7 @@ screen poetry_display:
                     textbutton "Add New Poem" action Jump("make_poem") sensitive (len(poems) < MAX_POEMS)
                     textbutton "Screenshot" action Screenshot()
                     textbutton "Save" action ShowMenu("save")
-                    textbutton "Quit" action Return()
+                    textbutton "Quit" action Confirm("Quit to Main Menu?", Return())
 
 init python:
     def delete_poem(poem_number):
