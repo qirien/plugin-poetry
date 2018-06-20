@@ -1,4 +1,8 @@
-screen plugin_poetry:
+screen plugin_poetry(display_words):
+    $ nouns = display_words.get_nouns()
+    $ adjectives = display_words.get_adjectives()
+    $ verbs = display_words.get_verbs()
+    $ other = display_words.get_other()
     frame:
         style_prefix "pp"
         xfill True
