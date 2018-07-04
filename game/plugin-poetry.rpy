@@ -1,4 +1,5 @@
-screen plugin_poetry(display_words):
+screen plugin_poetry(board):
+    $ display_words = board.get_display_words()
     $ nouns = display_words.get_nouns()
     $ adjectives = display_words.get_adjectives()
     $ verbs = display_words.get_verbs()
@@ -20,109 +21,110 @@ screen plugin_poetry(display_words):
                     hbox:
                         spacing 20
                         xalign 0.5
-                        textbutton "Reset" action Confirm("Delete this poem?", Reset(True))
-                        textbutton "Done" action Return()
+                        textbutton "Reset" action Confirm("Delete this poem?", Reset(board, True))
+                        textbutton "Done" action [FinishPoem(board), Return()]
                     hbox: # Poem lines
                         spacing 2
                         vbox:
                             yalign 0.5
                             spacing 10
-                            textbutton "▲" action PreviousLine() sensitive(current_line>1) size_group "nav_buttons"
-                            textbutton "×" action Confirm("Delete line?", Reset(False)) size_group "nav_buttons"
-                            textbutton "▼" action NextLine() sensitive(current_line< (MAX_LINES-1)) size_group "nav_buttons"
+                            textbutton "▲" action PreviousLine(board) sensitive(board.current_line>=1) size_group "nav_buttons"
+                            textbutton "×" action Confirm("Delete line?", Reset(board, False)) size_group "nav_buttons"
+                            textbutton "▼" action NextLine(board) sensitive(board.current_line< (board.MAX_LINES-1)) size_group "nav_buttons"
                         vbox:
-                            for i in range(0, MAX_LINES):
+                            for i in range(0, board.MAX_LINES):
                                 hbox:
                                     spacing 2
                                     null height 35
-                                    if (i < len(poem)):
-                                        if (i == current_line):
+                                    if (i < len(board.poem)):
+                                        if (i == board.current_line):
                                             label "→"
-                                        for j in range(0, len(poem[i])):
-                                            textbutton poem[i][j] action DeleteWord(j)
+                                        for j in range(0, len(board.poem[i])):
+                                            textbutton board.poem[i][j] action DeleteWord(board,j)
                 hbox:
                     spacing 20
                     xfill True
                     vbox:
                         yalign 0.5
                         spacing 10
-                        textbutton "+" action renpy.curried_invoke_in_new_context(textinput) size_group "nav_buttons"
-                        textbutton "↔" action ShuffleWordLists() size_group "nav_buttons"
+
+                        # TODO: this doesn't work anymore.
+                        #textbutton "+" action renpy.curried_invoke_in_new_context(textinput) size_group "nav_buttons"
+                        textbutton "↔" action ShuffleWordLists(board) size_group "nav_buttons"
                     vbox:
                         label "Nouns"
                         vpgrid:
-                            cols NOUN_COLUMNS
+                            cols board.NOUN_COLUMNS
                             for i in range(0, len(nouns)):
-                                textbutton nouns[i] action AddWord(nouns[i]) size_group "word"
+                                textbutton nouns[i] action AddWord(board, nouns[i]) size_group "word"
 
                     vbox:
                         label "Adjectives"
                         vpgrid:
-                            cols ADJECTIVE_COLUMNS
+                            cols board.ADJECTIVE_COLUMNS
                             for i in range(0, len(adjectives)):
-                                textbutton adjectives[i] action AddWord(adjectives[i]) size_group "word"
+                                textbutton adjectives[i] action AddWord(board, adjectives[i]) size_group "word"
 
                     vbox:
                         label "Verbs"
                         vpgrid:
-                            cols VERB_COLUMNS
+                            cols board.VERB_COLUMNS
                             for i in range(0, len(verbs)):
-                                textbutton verbs[i] action AddWord(verbs[i]) size_group "word"
+                                textbutton verbs[i] action AddWord(board, verbs[i]) size_group "word"
 
                     vbox:
                         label "Other"
                         vpgrid:
-                            cols OTHER_COLUMNS
+                            cols board.OTHER_COLUMNS
                             for i in range(0, len(other)):
-                                textbutton other[i] action AddWord(other[i]) size_group "word"
+                                textbutton other[i] action AddWord(board, other[i]) size_group "word"
 
 init python:
-    def nextline():
-        global poem, current_line
-        current_line += 1
-        poem.append([])
+    def nextline(board):
+        board.nextline()
         renpy.restart_interaction()
     NextLine = renpy.curry(nextline)
 
-    def previousline():
-        global current_line
-        current_line -= 1
+    def previousline(board):
+        board.previousline()
         renpy.restart_interaction()
     PreviousLine = renpy.curry(previousline)
 
-    def addword(word):
-        global poem, current_line
-        if (word[0] == "-"): # if we have a suffix, add on to last word
-            # special case -ing onto a word ending with 'e'
-            if ((poem[current_line][-1][-1] == "e") and (word == "-ing")):
-                poem[current_line][-1] = poem[current_line][-1][0:-1] + word[1:]
-            else:
-                poem[current_line][-1] += word[1:]
-        else:
-            poem[current_line].append(word)
+    def addword(board, word):
+        board.addword(word)
         renpy.restart_interaction()
     AddWord = renpy.curry(addword)
 
-    def deleteword(index):
-        global poem, current_line
-        del poem[current_line][index]
+    def deleteword(board, index):
+        board.deleteword(index)
         renpy.restart_interaction()
     DeleteWord = renpy.curry(deleteword)
 
-    def reset(fullReset=False):
-        global poem, current_line
-        if (fullReset):
-            poem = [[]]
-            current_line = 0
-        else:
-            poem[current_line] = []
+    def reset(board, fullReset=False):
+        board.reset(fullReset)
         renpy.restart_interaction()
     Reset = renpy.curry(reset)
 
+    # Reselect words for lists
+    def shuffle_word_lists(board):
+        global display_words
+        board.generate_display_words()
+        display_words = board.get_display_words()
+        renpy.restart_interaction()
+        return
+
+    ShuffleWordLists = renpy.curry(shuffle_word_lists)
+
     def textinput():
         new_word = renpy.input("Word?")
-        addword(new_word)
+        addword(board, new_word)
+        return
     # curried up above so we can call it in a new context
+
+    def finishpoem(board):
+        board.finish_poem()
+        return
+    FinishPoem = renpy.curry(finishpoem)
 
 style pp_label is label:
     xalign 0.5
