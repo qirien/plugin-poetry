@@ -66,7 +66,7 @@ init -100 python:
             return
 
         def deleteword(self,index):
-            del self.poem[current_line][index]
+            del self.poem[self.current_line][index]
             return
 
         def reset(self, fullReset):
