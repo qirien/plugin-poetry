@@ -26,6 +26,10 @@ init -100 python:
             self.generate_display_words()
             return
 
+        def set_wordpack(self, *args):
+            self.wordpacks = list(args)
+            return
+
         # Generates a Wordpack of the proper size to display, with
         # words from all the wordpacks given to this board.
         def generate_display_words(self):
@@ -81,5 +85,13 @@ init -100 python:
             self.poems.append(self.poem)
             self.poem = [[]]
             self.current_line = 0
+
+        def get_poem_as_string(self, index=0):
+            poem_string = ""
+            for poem_line in self.poems[index]:
+                poem_string += " ".join(poem_line)
+                poem_string += "\n"
+
+            return poem_string.rstrip()
 
         # TODO: change wordpacks?

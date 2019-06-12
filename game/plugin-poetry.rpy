@@ -1,3 +1,7 @@
+##
+# This is the interface for building poems
+##
+
 screen plugin_poetry(board):
     $ display_words = board.get_display_words()
     $ nouns = display_words.get_nouns()
@@ -12,7 +16,6 @@ screen plugin_poetry(board):
         frame:
             xpadding 50
             yfill True
-            background "#aaaaaa"
             vbox: # Poem, then words
                 vbox: # Title, then poem
                     xfill True
@@ -125,16 +128,3 @@ init python:
         board.finish_poem()
         return
     FinishPoem = renpy.curry(finishpoem)
-
-style pp_label is label:
-    xalign 0.5
-
-style pp_vpgrid is vpgrid:
-    spacing 5
-
-style pp_button_text is button_text:
-    size 18
-    xalign 0.5
-
-style pp_text is text:
-    color "#000000"
