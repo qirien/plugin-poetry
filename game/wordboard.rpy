@@ -69,8 +69,8 @@ init -100 python:
                 self.poem[self.current_line].append(word)
             return
 
-        def deleteword(self,index):
-            del self.poem[self.current_line][index]
+        def deleteword(self,line, index):
+            del self.poem[line][index]
             return
 
         def reset(self, fullReset):

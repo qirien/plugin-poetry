@@ -27,19 +27,28 @@ screen poetry_display(board):
                                         spacing 5
                                         if (i < len(board.poems[count])):
                                             for j in range(0, len(board.poems[count][i])):
-                                                textbutton board.poems[count][i][j] action Confirm("Delete this poem?", DeletePoem(board, count))
+                                                textbutton board.poems[count][i][j] action Confirm("Delete this poem?", DeletePoem(board, count)) tooltip "Delete this poem"
 
                 vbox:
                     xalign 0.8
                     spacing 5
-                    textbutton "Add New Poem" action Jump("make_poem") sensitive (len(board.poems) < board.MAX_POEMS)
-                    textbutton "Screenshot" action Screenshot()
-                    textbutton "Save" action ShowMenu("save")
-                    textbutton "Quit" action Confirm("Quit to Main Menu?", Return())
+                    null height 50
+                    textbutton "Add New Poem" action Jump("make_poem") sensitive (len(board.poems) < board.MAX_POEMS) tooltip "Add another poem with the same set of words"
+                    textbutton "Change Wordpacks" action Jump("change_wordpacks") tooltip "Choose different sets of words"
+                    textbutton "Screenshot" action Screenshot() tooltip "Take a screenshot, saved in this game's directory"
+                    textbutton "Save" action ShowMenu("save") tooltip "Save Game"
+                    textbutton "Quit" action Confirm("Quit to Main Menu?", Return()) tooltip "Quit to Menu"
+                    null height 50
+
+                    fixed:
+                        xsize 200
+                        $ tooltip = GetTooltip()
+                        if tooltip:
+                            text tooltip italic True
 
 init python:
     def delete_poem(board, poem_number):
-        board.poems.remove(poems[poem_number])
+        board.poems.remove(board.poems[poem_number])
 
     DeletePoem = renpy.curry(delete_poem)
 

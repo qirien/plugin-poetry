@@ -20,20 +20,31 @@ screen plugin_poetry(board):
                 vbox: # Title, then poem
                     xfill True
                     spacing 5
-                    label "New Poem" text_size 50 xalign 0.5
+                    hbox:
+                        xfill True
+                        $ tooltip = GetTooltip()
+
+                        fixed:
+                            xsize 250
+                            ysize 50
+                            if tooltip:
+                                text "[tooltip]" italic True yalign 1.0
+                        label "New Poem" text_size 50 xalign 0.5
+                        null width 250
+
                     hbox:
                         spacing 20
                         xalign 0.5
-                        textbutton "Reset" action Confirm("Delete this poem?", Reset(board, True))
-                        textbutton "Done" action [FinishPoem(board), Return()]
+                        textbutton "Reset" action Confirm("Delete this poem?", Reset(board, True)) tooltip "Reset the poem"
+                        textbutton "Done" action [FinishPoem(board), Return()] tooltip "Done with this poem"
                     hbox: # Poem lines
                         spacing 2
                         vbox:
                             yalign 0.5
                             spacing 10
-                            textbutton "▲" action PreviousLine(board) sensitive(board.current_line>=1) size_group "nav_buttons"
-                            textbutton "×" action Confirm("Delete line?", Reset(board, False)) size_group "nav_buttons"
-                            textbutton "▼" action NextLine(board) sensitive(board.current_line< (board.MAX_LINES-1)) size_group "nav_buttons"
+                            textbutton "▲" action PreviousLine(board) sensitive(board.current_line>=1) size_group "nav_buttons" tooltip "Previous line"
+                            textbutton "×" action Confirm("Delete line?", Reset(board, False)) size_group "nav_buttons" tooltip "Delete line"
+                            textbutton "▼" action NextLine(board) sensitive(board.current_line< (board.MAX_LINES-1)) size_group "nav_buttons" tooltip "Next line"
                         vbox:
                             for i in range(0, board.MAX_LINES):
                                 hbox:
@@ -43,7 +54,7 @@ screen plugin_poetry(board):
                                         if (i == board.current_line):
                                             label "→"
                                         for j in range(0, len(board.poem[i])):
-                                            textbutton board.poem[i][j] action DeleteWord(board,j)
+                                            textbutton board.poem[i][j] action DeleteWord(board,i,j) tooltip "Delete this word"
                 hbox:
                     spacing 20
                     xfill True
@@ -53,7 +64,7 @@ screen plugin_poetry(board):
 
                         # TODO: this doesn't work anymore.
                         #textbutton "+" action renpy.curried_invoke_in_new_context(textinput) size_group "nav_buttons"
-                        textbutton "↔" action ShuffleWordLists(board) size_group "nav_buttons"
+                        textbutton "↔" action ShuffleWordLists(board) size_group "nav_buttons" tooltip "Get different words from this set"
                     vbox:
                         label "Nouns"
                         vpgrid:
@@ -98,8 +109,8 @@ init python:
         renpy.restart_interaction()
     AddWord = renpy.curry(addword)
 
-    def deleteword(board, index):
-        board.deleteword(index)
+    def deleteword(board, line, index):
+        board.deleteword(line, index)
         renpy.restart_interaction()
     DeleteWord = renpy.curry(deleteword)
 

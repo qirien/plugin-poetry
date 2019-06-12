@@ -1,9 +1,4 @@
-# Plugin Poetry by Andrea Landaker is licensed CC-BY 4.0
-# You can use this code as long as you credit Andrea Landaker.
-# See http://creativecommons.org/licenses/by/4.0/
-#
-#
-# To customize, create your own lists and tell the word_board to use them below.
+# This file contains possible wordpacks that Plugin Poetry can use.
 
 init python:
     # Basic words that you probably want on every board.
@@ -55,7 +50,7 @@ init python:
     separation_words.add_words(separation_nouns, separation_adjectives, separation_verbs, separation_other)
 
     # Talaam-related words
-    talaam_nouns = ["star", "flare", "rock", "planet", "crabird", "wolf slug", "turtle snail", "colony", "RET", "liaison", "geyser", "jellystar", "jellysquid", "lightspeed", "nebula", "cave", "accident", "tentacle"]
+    talaam_nouns = ["star", "flare", "rock", "planet", "crabird", "wolf slug", "turtle snail", "colony", "RET", "liaison", "geyser", "jellystar", "jellysquid", "lightspeed", "nebula", "cave", "accident", "tentacle", "space"]
     talaam_adjectives = ["hot", "binary", "trinary", "alien", "solar", "terrestrial", "celestial", "distant", "rainy", "wet", "jiggly", "purple"]
     talaam_verbs = ["revolve", "blaze", "steam", "radiate", "work", "mine", "explode", "dig", "murder", "glow", "tingle"]
     talaam_other = ["huh", "but", "together"]
