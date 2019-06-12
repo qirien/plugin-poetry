@@ -34,7 +34,7 @@ init python:
     romance_words.add_words(romance_nouns, romance_adjectives, romance_verbs, romance_other)
 
     # Farm-related words
-    farm_nouns = ["breakfast", "sunrise", "plant", "flower", "seed", "fire", "light", "water", "earth", "air", "planet", "space", "fruit", "harvest", "grass", "dirt", "sky", "sunset", "moon", "weed", "pest", "goat"]
+    farm_nouns = ["breakfast", "sunrise", "plant", "flower", "seed", "fire", "light", "water", "earth", "air", "planet", "space", "fruit", "harvest", "grass", "dirt", "sky", "sunset", "moon", "weed", "pest", "goat", "soil"]
     farm_adjectives = ["simple", "slow", "green", "sharp", "alive", "dead", "brittle"]
     farm_verbs = ["soar", "grow", "build", "help", "cut", "wrench", "dig", "glisten"]
     farm_other = ["yum", "ugh"]

@@ -24,4 +24,4 @@ style pp_label_text is label_text:
     color "#3d1466"
 
 style pp_frame is frame:
-    background "#b29cc9"
+    background "#afa6b9"
