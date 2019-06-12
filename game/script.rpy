@@ -23,13 +23,13 @@ init python:
     family_words.add_words(family_nouns, family_adjectives, family_verbs, family_other)
 
     # Farm-related words
-    farm_nouns = ["breakfast", "sunrise", "plant", "flower", "seed", "fire", "light", "water", "earth", "air", "planet", "space", "fruit", "harvest", "grass"]
+    farm_nouns = ["breakfast", "sunrise", "plant", "flower", "seed", "fire", "light", "water", "earth", "air", "planet", "space", "fruit", "harvest", "grass", "dirt"]
     farm_adjectives = ["simple", "slow", "green", "sharp", "alive", "dead", "brittle"]
     farm_verbs = ["soar", "grow", "build", "help", "cut", "wrench"]
     farm_other = ["yum"]
     farm_words = Wordpack()
     farm_words.add_words(farm_nouns, farm_adjectives, farm_verbs, farm_other)
-    
+
 label start:
     scene stars
 
