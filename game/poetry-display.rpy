@@ -6,7 +6,7 @@ screen poetry_display(board):
         style_prefix "pp"
         xfill True
         yfill True
-        background "images/stars.jpg"
+        background "#000"
         frame:
             xpadding 50
             ypadding 50
