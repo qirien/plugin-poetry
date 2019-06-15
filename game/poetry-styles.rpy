@@ -25,3 +25,19 @@ style pp_label_text is label_text:
 
 style pp_frame is frame:
     background "#afa6b9"
+
+##
+# Next follows variants for mobile devices
+##
+
+style pps_vpgrid is pp_vpgrid:
+    spacing 10
+
+style pps_text is pp_text
+style pps_button is pp_button
+style pps_button_text is pp_button_text:
+    size 28
+
+style pps_label is pp_label
+style pps_label_text is pp_label_text
+style pps_frame is pp_frame
