@@ -15,6 +15,7 @@ style pp_button_text:
     size 18
     xalign 0.5
     idle_color "#000000"
+    insensitive_color "#000000"
     hover_color "#3d1466"
 
 style pp_label is label:
