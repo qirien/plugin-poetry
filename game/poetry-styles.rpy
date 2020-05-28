@@ -25,7 +25,7 @@ style pp_label_text is label_text:
     color "#3d1466"
 
 style pp_frame is frame:
-    background "#afa6b9"
+    background "gui/fridge.png"
 
 ##
 # Next follows variants for mobile devices
@@ -42,3 +42,17 @@ style pps_button_text is pp_button_text:
 style pps_label is pp_label
 style pps_label_text is pp_label_text
 style pps_frame is pp_frame
+
+
+transform randomize:
+    choice:
+        rotate -2
+    choice:
+        rotate 2
+    choice:
+        rotate -3
+    choice:
+        rotate 3
+    choice:
+        rotate 0
+

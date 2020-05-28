@@ -9,7 +9,6 @@ screen plugin_poetry(board):
         style_prefix "pp"
         xfill True
         yfill True
-        background "#000"
         use pp_screen(board)
 
 # phone/tablet variant
@@ -18,7 +17,6 @@ screen plugin_poetry(board):
         style_prefix "pps"
         xfill True
         yfill True
-        background "#000"
         use pp_screen(board)
 
 screen pp_screen(board):
@@ -41,10 +39,10 @@ screen pp_screen(board):
 
                     fixed:
                         xsize 300
-                        ysize 50
+                        ysize 40
                         if tooltip:
                             text "[tooltip]" italic True yalign 1.0
-                    label "New Poem" text_size 50 xalign 0.5
+                    #label "New Poem" text_size 50 xalign 0.5
                     null width 300
 
                 hbox:
@@ -53,7 +51,7 @@ screen pp_screen(board):
                     textbutton "Reset" action Confirm("Delete this poem?", Reset(board, True)) tooltip "Reset the poem"
                     textbutton "Done" action [FinishPoem(board), Return()] tooltip "Done with poem"
                 hbox: # Poem lines
-                    spacing 2
+                    spacing 20
                     vbox:
                         yalign 0.5
                         spacing 10
