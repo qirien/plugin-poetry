@@ -18,7 +18,7 @@ label change_wordpacks:
     $ wordpack_list.append("romance")
     $ wordpack_list.append("farm")
     $ wordpack_list.append("separation")
-    $ wordpack_list.append("talaam")
+    $ wordpack_list.append("space")
 
     $ chosen_wordpacks = ["basic"]
     # Ask the user what wordpacks they would like

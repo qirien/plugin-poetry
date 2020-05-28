@@ -16,13 +16,13 @@ style pp_button_text:
     xalign 0.5
     idle_color "#000000"
     insensitive_color "#000000"
-    hover_color "#3d1466"
+    hover_color "#464646"
 
 style pp_label is label:
     xalign 0.5
 
 style pp_label_text is label_text:
-    color "#3d1466"
+    color "#464646"
 
 style pp_frame is frame:
     background "gui/fridge.png"

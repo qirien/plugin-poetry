@@ -27,6 +27,7 @@ screen pp_screen(board):
     $ other = display_words.get_other()
 
     frame:
+        background None
         xpadding 50
         yfill True
         vbox: # Poem, then words

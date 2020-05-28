@@ -48,7 +48,6 @@ screen poetry_display(board):
         style_prefix "pp"
         xfill True
         yfill True
-        background "#000"
         use p_display(board)
 
 # mobile variant
@@ -57,11 +56,11 @@ screen poetry_display(board):
         style_prefix "pps"
         xfill True
         yfill True
-        background "#000"
         use p_display(board)
 
 screen p_display(board):
     frame:
+        background None
         left_padding 100
         right_padding 50
         ypadding 50
@@ -77,9 +76,11 @@ screen p_display(board):
                             hbox:                                
                                 spacing 30
                                 yalign 0.5
-                                imagebutton auto "gui/twitter_%s.png" action TweetPoem(board.poems[count]) tooltip "Share this poem on Twitter" yalign 0.5
                                 vbox:
-                                    xsize 450
+                                    spacing 5
+                                    imagebutton auto "gui/twitter_%s.png" action TweetPoem(board.poems[count]) tooltip "Share this poem on Twitter" 
+                                    textbutton "×" action Confirm("Delete this poem?", DeletePoem(board, count)) tooltip "Delete this poem" xalign 0.5
+                                vbox:
                                     spacing 5
                                     for i in range(0, board.MAX_LINES):
                                         hbox:
@@ -93,10 +94,9 @@ screen p_display(board):
                 spacing 5
                 null height 50
                 textbutton "Add New Poem" action Jump("make_poem") sensitive (len(board.poems) < board.MAX_POEMS) tooltip "Add another poem with the same set of words"
-                textbutton "Change Wordpacks" action Jump("change_wordpacks") tooltip "Choose different sets of words"
+                textbutton "Change Wordpacks" action Jump("change_wordpacks") tooltip "Add another poem with a different set of words"
                 if (not renpy.mobile):
                     textbutton "Screenshot" action Screenshot() tooltip "Take a screenshot, saved in this game's directory"
-                # TODO: Add a 'share on twitter' button that just makes a tweet with the poem's text in it.
                 textbutton "Save" action ShowMenu("save") tooltip "Save Game"
                 textbutton "Done" action Confirm("Done with poems?", Return()) tooltip "Done with Poems"
                 null height 50
