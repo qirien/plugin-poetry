@@ -24,7 +24,6 @@ screen wp_select(wordpack_list):
         yfill True
         xfill True
         hbox:
-            null width 50
             vbox:
                 spacing 20
                 label "Wordpack Selection" text_size 50 xalign 0.5

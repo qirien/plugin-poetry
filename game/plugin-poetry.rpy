@@ -44,7 +44,6 @@ screen pp_screen(board):
                         if tooltip:
                             text "[tooltip]" italic True yalign 1.0
                     #label "New Poem" text_size 50 xalign 0.5
-                    null width 300
 
                 hbox:
                     spacing 20

@@ -27,7 +27,7 @@ init python:
 
     # Romance related words
     romance_nouns = ["body", "lips", "soul", "eyes", "legs", "hair", "scent", "baby", "honey", "marriage", "you", "skin", "chocolate", "wine", "sunset", "two", "smile", "heart", "lover", "friend"]
-    romance_adjectives = ["smooth", "graceful", "sexy", "sweaty", "hot", "tender", "sparkly", "romantic", "my", "sweet", "crimson", "lonely", "awesome", "fabulous", "gorgeous", "beautiful", "best"]
+    romance_adjectives = ["smooth", "graceful", "sexy", "sweaty", "hot", "tender", "sparkly", "romantic", "my", "sweet", "crimson", "lonely", "awesome", "fabulous", "gorgeous", "beautiful", "best", "one"]
     romance_verbs = ["sigh", "nibble", "caress", "kiss", "embrace", "taste", "soar", "dance", "entangle", "devour", "drink", "flutter", "hold", "murmur", "whisper"]
     romance_other = ["oh", "together", "with", "alone", "just", "always", "yes"]
     romance_words = Wordpack()
@@ -56,3 +56,12 @@ init python:
     space_other = ["huh", "but", "together"]
     space_words = Wordpack()
     space_words.add_words(space_nouns, space_adjectives, space_verbs, space_other)
+
+    # Activism words
+    activism_nouns = ["color", "speech", "law", "police", "government", "job", "silence", "humanity", "we", "voice", "speech", "hero", "martyr", "effect", "reform", "justice", "mercy", "culture", "liberty", "yourself", "you", "me", "I", "tax", "amendment", "neighbor", "duty", "now", "experience", "dream", "protest", "city"]
+    activism_adjectives = ["black", "brown", "white", "free", "equal", "strong", "different", "same", "one", "dead", "alive", "collective", "social", "right", "moral", "civil", "perfect", "my", "your", "our", "patriotic", "blind", "done", "ready", "able", "separate", "broken", "new"]
+    activism_verbs = ["matter", "live", "imagine", "speak", "shout", "work", "pray", "see", "hear", "understand", "unite", "divide", "champion", "change", "advocate", "march", "educate", "love", "is", "are", "enforce", "promote", "must", "need", "want", "stop", "demonstrate"]
+    activism_other=["to", "-s", "of", "together", "-d", "never", "always", "as", "and", "?", "!", "but", "in", "when", "-ing"]
+    activism_words = Wordpack()
+    activism_words.add_words(activism_nouns, activism_adjectives, activism_verbs, activism_other)
+

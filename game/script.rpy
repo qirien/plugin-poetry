@@ -19,6 +19,7 @@ label change_wordpacks:
     $ wordpack_list.append("farm")
     $ wordpack_list.append("separation")
     $ wordpack_list.append("space")
+    $ wordpack_list.append("activism")
 
     $ chosen_wordpacks = ["basic"]
     # Ask the user what wordpacks they would like
