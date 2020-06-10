@@ -1,9 +1,10 @@
-# Plugin Poetry by Andrea Landaker is licensed CC-BY 4.0
-# You can use this code as long as you credit Andrea Landaker.
-# See http://creativecommons.org/licenses/by/4.0/
+# Plugin Poetry by Andrea Landaker is licensed CC BY-NC 4.0
+# You can use this code for non-commercial use as long as you credit 
+# the author, Andrea Landaker.
+# See https://creativecommons.org/licenses/by-nc/4.0/legalcode
 #
 #
-# To customize, create your own lists in poetry.rpy and tell the word_board to use them below.
+# To customize, create your own lists in wordpacks.rpy and tell the word_board to use them below.
 
 label start:
     $ word_board = Board()
