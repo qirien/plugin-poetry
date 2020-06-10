@@ -261,7 +261,7 @@ screen navigation():
 
         else:
 
-            textbutton _("History") action ShowMenu("history")
+            #textbutton _("History") action ShowMenu("history")
 
             textbutton _("Save") action ShowMenu("save")
 

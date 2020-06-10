@@ -9,7 +9,6 @@ screen plugin_poetry(board):
         style_prefix "pp"
         xfill True
         yfill True
-        background "#000"
         use pp_screen(board)
 
 # phone/tablet variant
@@ -18,7 +17,6 @@ screen plugin_poetry(board):
         style_prefix "pps"
         xfill True
         yfill True
-        background "#000"
         use pp_screen(board)
 
 screen pp_screen(board):
@@ -29,6 +27,7 @@ screen pp_screen(board):
     $ other = display_words.get_other()
 
     frame:
+        background None
         xpadding 50
         yfill True
         vbox: # Poem, then words
@@ -41,11 +40,10 @@ screen pp_screen(board):
 
                     fixed:
                         xsize 300
-                        ysize 50
+                        ysize 40
                         if tooltip:
                             text "[tooltip]" italic True yalign 1.0
-                    label "New Poem" text_size 50 xalign 0.5
-                    null width 300
+                    #label "New Poem" text_size 50 xalign 0.5
 
                 hbox:
                     spacing 20
@@ -53,7 +51,7 @@ screen pp_screen(board):
                     textbutton "Reset" action Confirm("Delete this poem?", Reset(board, True)) tooltip "Reset the poem"
                     textbutton "Done" action [FinishPoem(board), Return()] tooltip "Done with poem"
                 hbox: # Poem lines
-                    spacing 2
+                    spacing 20
                     vbox:
                         yalign 0.5
                         spacing 10
@@ -77,7 +75,7 @@ screen pp_screen(board):
                     yalign 0.5
                     spacing 10
 
-                    # TODO: this doesn't work anymore.
+                    # adding a new word doesn't work anymore...
                     #textbutton "+" action renpy.curried_invoke_in_new_context(textinput) size_group "nav_buttons"
                     textbutton "↔" action ShuffleWordLists(board) size_group "nav_buttons" tooltip "Get different words"
                 vbox:
@@ -121,6 +119,8 @@ init python:
 
     def addword(board, word):
         board.addword(word)
+        if board.line_full():
+            board.nextline()
         renpy.restart_interaction()
     AddWord = renpy.curry(addword)
 

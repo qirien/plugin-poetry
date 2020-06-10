@@ -20,14 +20,14 @@ init python:
     # Baby-related words
     baby_nouns = ["blanket", "nose", "toe", "milk", "baby", "hand", "fist", "mouth", "belly button", "blood", "diaper", "scent", "smile", "toy"]
     baby_adjectives = ["tiny", "cute", "tender", "tight", "precious", "chubby", "stinky", "fragile"]
-    baby_verbs = ["cry", "hold", "babble", "cuddle", "yawn", "nap", "crawl", "whisper"]
+    baby_verbs = ["cry", "hold", "babble", "cuddle", "yawn", "nap", "crawl", "whisper", "wail"]
     baby_other = ["oh"]
     baby_words = Wordpack()
     baby_words.add_words(baby_nouns, baby_adjectives, baby_verbs, baby_other)
 
     # Romance related words
     romance_nouns = ["body", "lips", "soul", "eyes", "legs", "hair", "scent", "baby", "honey", "marriage", "you", "skin", "chocolate", "wine", "sunset", "two", "smile", "heart", "lover", "friend"]
-    romance_adjectives = ["smooth", "graceful", "sexy", "sweaty", "hot", "tender", "sparkly", "romantic", "my", "sweet", "crimson", "lonely", "awesome", "fabulous", "gorgeous", "beautiful", "best"]
+    romance_adjectives = ["smooth", "graceful", "sexy", "sweaty", "hot", "tender", "sparkly", "romantic", "my", "sweet", "crimson", "lonely", "awesome", "fabulous", "gorgeous", "beautiful", "best", "one"]
     romance_verbs = ["sigh", "nibble", "caress", "kiss", "embrace", "taste", "soar", "dance", "entangle", "devour", "drink", "flutter", "hold", "murmur", "whisper"]
     romance_other = ["oh", "together", "with", "alone", "just", "always", "yes"]
     romance_words = Wordpack()
@@ -49,10 +49,19 @@ init python:
     separation_words = Wordpack()
     separation_words.add_words(separation_nouns, separation_adjectives, separation_verbs, separation_other)
 
-    # Talaam-related words
-    talaam_nouns = ["star", "flare", "rock", "planet", "crabird", "wolf slug", "turtle snail", "colony", "RET", "liaison", "geyser", "jellystar", "jellysquid", "lightspeed", "nebula", "cave", "accident", "tentacle", "space"]
-    talaam_adjectives = ["hot", "binary", "trinary", "alien", "solar", "terrestrial", "celestial", "distant", "rainy", "wet", "jiggly", "purple"]
-    talaam_verbs = ["revolve", "blaze", "steam", "radiate", "work", "mine", "explode", "dig", "murder", "glow", "tingle"]
-    talaam_other = ["huh", "but", "together"]
-    talaam_words = Wordpack()
-    talaam_words.add_words(talaam_nouns, talaam_adjectives, talaam_verbs, talaam_other)
+    # Space-related words
+    space_nouns = ["star", "flare", "rock", "planet", "crabird", "wolf slug", "turtle snail", "colony", "liaison", "geyser", "jellystar", "jellysquid", "lightspeed", "nebula", "cave", "accident", "tentacle", "space"]
+    space_adjectives = ["hot", "binary", "trinary", "alien", "solar", "terrestrial", "celestial", "distant", "rainy", "wet", "jiggly", "purple"]
+    space_verbs = ["revolve", "blaze", "steam", "radiate", "work", "mine", "explode", "dig", "murder", "glow", "tingle"]
+    space_other = ["huh", "but", "together"]
+    space_words = Wordpack()
+    space_words.add_words(space_nouns, space_adjectives, space_verbs, space_other)
+
+    # Activism words
+    activism_nouns = ["color", "speech", "law", "police", "government", "job", "silence", "humanity", "we", "voice", "speech", "hero", "martyr", "effect", "reform", "justice", "mercy", "culture", "liberty", "yourself", "you", "me", "I", "tax", "amendment", "neighbor", "duty", "now", "experience", "dream", "protest", "city"]
+    activism_adjectives = ["black", "brown", "white", "free", "equal", "strong", "different", "same", "one", "dead", "alive", "collective", "social", "right", "moral", "civil", "perfect", "my", "your", "our", "patriotic", "blind", "done", "ready", "able", "separate", "broken", "new"]
+    activism_verbs = ["matter", "live", "imagine", "speak", "shout", "work", "pray", "see", "hear", "understand", "unite", "divide", "champion", "change", "advocate", "march", "educate", "love", "is", "are", "enforce", "promote", "must", "need", "want", "stop", "demonstrate"]
+    activism_other=["to", "-s", "of", "together", "-d", "never", "always", "as", "and", "?", "!", "but", "in", "when", "-ing"]
+    activism_words = Wordpack()
+    activism_words.add_words(activism_nouns, activism_adjectives, activism_verbs, activism_other)
+
