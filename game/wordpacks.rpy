@@ -59,9 +59,9 @@ init python:
 
     # Activism words
     activism_nouns = ["color", "speech", "law", "police", "government", "job", "silence", "humanity", "we", "voice", "speech", "hero", "martyr", "effect", "reform", "justice", "mercy", "culture", "liberty", "yourself", "you", "me", "I", "tax", "amendment", "neighbor", "duty", "now", "experience", "dream", "protest", "city"]
-    activism_adjectives = ["black", "brown", "white", "free", "equal", "strong", "different", "same", "one", "dead", "alive", "collective", "social", "right", "moral", "civil", "perfect", "my", "your", "our", "patriotic", "blind", "done", "ready", "able", "separate", "broken", "new"]
+    activism_adjectives = ["black", "brown", "white", "free", "equal", "strong", "different", "same", "one", "dead", "alive", "collective", "social", "right", "moral", "civil", "perfect", "my", "your", "our", "patriotic", "blind", "done", "ready", "able", "separate", "broken", "new", "strong"]
     activism_verbs = ["matter", "live", "imagine", "speak", "shout", "work", "pray", "see", "hear", "understand", "unite", "divide", "champion", "change", "advocate", "march", "educate", "love", "is", "are", "enforce", "promote", "must", "need", "want", "stop", "demonstrate"]
-    activism_other=["to", "-s", "of", "together", "-d", "never", "always", "as", "and", "?", "!", "but", "in", "when", "-ing"]
+    activism_other=["to", "-s", "of", "together", "-d", "never", "always", "as", "and", "?", "!", "but", "in", "when", "-ing", "with"]
     activism_words = Wordpack()
     activism_words.add_words(activism_nouns, activism_adjectives, activism_verbs, activism_other)
 
