@@ -6,6 +6,7 @@
 
 screen poem_display(poem):
     variant "large"
+    key "mousedown_1" action [Screenshot(), Hide("poem_display", fade)]
     frame:
         style_prefix "pp"
         xfill True

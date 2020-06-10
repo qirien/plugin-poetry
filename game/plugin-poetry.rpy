@@ -83,28 +83,28 @@ screen pp_screen(board):
                     vpgrid:
                         cols board.NOUN_COLUMNS
                         for i in range(0, len(nouns)):
-                            textbutton nouns[i] action AddWord(board, nouns[i]) size_group "word"
+                            textbutton nouns[i] action AddWord(board, nouns[i]) size_group "noun_grp"
 
                 vbox:
                     label "Adjectives"
                     vpgrid:
                         cols board.ADJECTIVE_COLUMNS
                         for i in range(0, len(adjectives)):
-                            textbutton adjectives[i] action AddWord(board, adjectives[i]) size_group "word"
+                            textbutton adjectives[i] action AddWord(board, adjectives[i]) size_group "adj_grp"
 
                 vbox:
                     label "Verbs"
                     vpgrid:
                         cols board.VERB_COLUMNS
                         for i in range(0, len(verbs)):
-                            textbutton verbs[i] action AddWord(board, verbs[i]) size_group "word"
+                            textbutton verbs[i] action AddWord(board, verbs[i]) size_group "verb_grp"
 
                 vbox:
                     label "Other"
                     vpgrid:
                         cols board.OTHER_COLUMNS
                         for i in range(0, len(other)):
-                            textbutton other[i] action AddWord(board, other[i]) size_group "word"
+                            textbutton other[i] action AddWord(board, other[i]) size_group "other_grp"
 
 init python:
     def nextline(board):
